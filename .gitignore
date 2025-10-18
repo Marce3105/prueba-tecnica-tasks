@@ -1,0 +1,22 @@
+# --- Ignorar dependencias y builds ---
+node_modules/
+dist/
+
+# --- Entornos y configuraciones ---
+.env
+.env.*
+.DS_Store
+
+# --- Logs y cache ---
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# --- Compilaciones ---
+*.tsbuildinfo
+
+# --- Editor y sistema ---
+.vscode/
+.idea/
