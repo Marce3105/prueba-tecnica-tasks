@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div className="container">
-      <h1>Gestor de Tareas</h1>
+      <h1>CRUD de Tareas</h1>
       <TaskForm onTaskCreated={handleTaskCreated} />
       <hr />
       <TaskList refresh={refresh} />

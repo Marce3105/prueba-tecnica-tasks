@@ -1,4 +1,4 @@
-Gestor de Tareas (CRUD) - Prueba Técnica
+CRUD de Tareas - Prueba Técnica
 
 Autor
 Marcela Hidalgo Ospina
