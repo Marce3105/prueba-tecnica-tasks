@@ -2,7 +2,6 @@ Gestor de Tareas (CRUD) - Prueba Técnica
 
 Autor
 Marcela Hidalgo Ospina
- • WhatsApp: +57 314 605 6392
 
 1. Descripción
 Aplicación web para gestionar tareas con las siguientes funcionalidades:
