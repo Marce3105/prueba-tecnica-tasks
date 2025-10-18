@@ -4,17 +4,19 @@ import { createTask, updateTask } from "./api";
 
 interface TaskFormProps {
   onTaskCreated: () => void;
-  taskToEdit?: Task;
-  onCloseEdit?: () => void;
+  taskToEdit?: Task; // Si se recibe, el formulario se usa para editar
+  onCloseEdit?: () => void; // Si se recibe, el formulario se usa para editar
 }
 
 export const TaskForm = ({ onTaskCreated, taskToEdit, onCloseEdit }: TaskFormProps) => {
+  // Estados para los campos del formulario
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [status, setStatus] = useState<'todo' | 'in_progress' | 'done'>("todo");
   const [priority, setPriority] = useState<'low' | 'medium' | 'high'>("medium");
   const [dueDate, setDueDate] = useState("");
 
+  // useEffect para rellenar los campos si se está editando una tarea
   useEffect(() => {
     if (taskToEdit) {
       setTitle(taskToEdit.title);
@@ -25,22 +27,26 @@ export const TaskForm = ({ onTaskCreated, taskToEdit, onCloseEdit }: TaskFormPro
     }
   }, [taskToEdit]);
 
+  // Función que se ejecuta al enviar el formulario
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+    e.preventDefault(); // Evita recargar la página
     const taskData = { title, description, status, priority, dueDate: dueDate || null };
 
     try {
       if (taskToEdit) {
+        // Actualizar tarea existente
         await updateTask(taskToEdit.id, taskData);
-        onCloseEdit && onCloseEdit();
+        onCloseEdit && onCloseEdit(); // Cierra el formulario de edición
       } else {
+        // Crear nueva tarea
         await createTask(taskData);
       }
+      // Limpiar formulario después de enviar
       setTitle(""); setDescription(""); setStatus("todo"); setPriority("medium"); setDueDate("");
-      onTaskCreated();
+      onTaskCreated(); // Refresca la lista de tareas
     } catch (error) {
       console.error(error);
-      alert("Error al guardar la tarea");
+      alert("Error al guardar la tarea"); // Manejo de errores HTTP
     }
   };
 

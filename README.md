@@ -51,7 +51,7 @@ npm install
 
 Ejecutar la base de datos (Prisma):
 
-npx prisma migrate dev
+npx prisma migrate dev 
 
 
 Ejecutar el servidor:
@@ -82,7 +82,23 @@ npm start
 
 El frontend correrá en: http://localhost:3000
 
-4. Estructura de carpetas
+4. Dependencias y scripts
+
+Backend:
+
+npm install → Instala dependencias
+
+npx prisma migrate dev → Aplica migraciones a la base de datos
+
+npm run start:dev → Ejecuta el servidor en modo desarrollo
+
+Frontend:
+
+npm install → Instala dependencias
+
+npm start → Ejecuta la app en modo desarrollo
+
+5. Estructura de carpetas
 backend/
   src/
     tasks/
@@ -103,7 +119,11 @@ frontend/
     App.tsx
     index.tsx
 
-5. Funcionalidades del proyecto
+6. Flujo de la aplicación
+
+El frontend envía solicitudes HTTP al backend mediante Axios. Las tareas se crean, actualizan o eliminan desde el frontend y se almacenan en la base de datos SQLite gestionada por Prisma. Los errores se muestran en pantalla si alguna petición falla.
+
+7. Funcionalidades del proyecto
 
 Listar tareas: Muestra todas las tareas registradas.
 
@@ -119,7 +139,9 @@ Manejo de errores HTTP: Mensajes si falla alguna petición al backend.
 
 Documentación Swagger: Para probar y validar todas las rutas del backend.
 
-6. Modelo de datos
+El formulario de creación/edición valida que el título no esté vacío y que la prioridad y estado sean válidos. Si alguna petición al backend falla, se muestra un mensaje de error en la interfaz.
+
+8. Modelo de datos
 
 Campo	Tipo	Notas
 id	string (uuid)	Generado automáticamente por backend
@@ -131,7 +153,9 @@ dueDate	ISO date string	Opcional
 createdAt	datetime	Autogestionado por backend
 updatedAt	datetime	Autogestionado por backend
 
-7. API Endpoints (Backend)
+La base de datos SQLite se encuentra en backend/dev.db. Todos los cambios realizados en las tareas se almacenan allí.
+
+9. API Endpoints (Backend)
 
 POST /tasks → Crear tarea
 
@@ -145,7 +169,7 @@ DELETE /tasks/:id → Eliminar tarea
 
 Swagger documenta todas estas rutas en: http://localhost:4000/api
 
-8. Notas finales
+10. Notas finales
 
 Código organizado y comentado.
 
