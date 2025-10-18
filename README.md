@@ -2,7 +2,6 @@ Gestor de Tareas (CRUD) - Prueba Técnica
 
 Autor
 Marcela Hidalgo Ospina
-Contacto: contacto@novacore.com.co
  • WhatsApp: +57 314 605 6392
 
 1. Descripción
