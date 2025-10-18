@@ -23,7 +23,7 @@ async function bootstrap() {
   SwaggerModule.setup('api', app, document);
 
   await app.listen(4000);
-  console.log(`🚀 Backend corriendo en: http://localhost:4000`);
-  console.log(`📘 Swagger: http://localhost:4000/api`);
+  console.log(`Backend corriendo en: http://localhost:4000`);
+  console.log(`Swagger: http://localhost:4000/api`);
 }
 bootstrap();

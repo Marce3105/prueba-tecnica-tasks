@@ -18,8 +18,8 @@ async function bootstrap() {
     const document = swagger_1.SwaggerModule.createDocument(app, config);
     swagger_1.SwaggerModule.setup('api', app, document);
     await app.listen(4000);
-    console.log(`🚀 Backend corriendo en: http://localhost:4000`);
-    console.log(`📘 Swagger: http://localhost:4000/api`);
+    console.log(`Backend corriendo en: http://localhost:4000`);
+    console.log(`Swagger: http://localhost:4000/api`);
 }
 bootstrap();
 //# sourceMappingURL=main.js.map
