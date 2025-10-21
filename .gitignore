@@ -1,11 +1,13 @@
 # --- Ignorar dependencias y builds ---
 node_modules/
 dist/
+build/
 
 # --- Entornos y configuraciones ---
 .env
 .env.*
-.DS_Store
+*.db
+*.db-journal
 
 # --- Logs y cache ---
 *.log
@@ -20,3 +22,15 @@ yarn-error.log*
 # --- Editor y sistema ---
 .vscode/
 .idea/
+.DS_Store
+Thumbs.db
+
+# --- Frontend ---
+frontend/node_modules/
+frontend/build/
+
+# --- Backend ---
+backend/node_modules/
+backend/dist/
+backend/dev.db
+
